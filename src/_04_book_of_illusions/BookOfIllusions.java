@@ -53,7 +53,7 @@ public class BookOfIllusions extends MouseAdapter {
 			frame.remove(gideon);
 			isGideonOnScreen = false;
 			frame.add(isaac);
-			JOptionPane.showMessageDialog(null, "OOOAAAHHHHHH!!!!!");
+			JOptionPane.showMessageDialog(null, "OOOAHHHHHHHH!!!");
 		}
 		else {
 			frame.remove(isaac);
