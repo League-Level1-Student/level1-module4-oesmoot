@@ -1,6 +1,14 @@
 package _08_pig_latin;
 
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 public class PigLatinTranslator {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JTextField field1 = new JTextField();
+	JTextField field2 = new JTextField();
     /**
      * Method to translate a english to pig latin.
      * 
@@ -120,4 +128,5 @@ public class PigLatinTranslator {
                 return i;
         return 0;
     }
+    
 }
