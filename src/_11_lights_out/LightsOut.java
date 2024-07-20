@@ -4,9 +4,11 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -28,6 +30,7 @@ public class LightsOut implements MouseListener {
 		/** PART 1. CREATE YOUR LIGHT BOARD **/
 		//1. Make your gamePanel a 5x5 grid with setLayout(new GridLayout(5, 5));
 		gamePanel.setLayout(new GridLayout(5,5));
+		Random ran = new Random();
 		
 			
 			for(int i = 0; i<25; i++) {
@@ -36,6 +39,9 @@ public class LightsOut implements MouseListener {
 				light.setText(String.valueOf(i+1));
 				light.setOpaque(true);
 				light.setBackground(Color.LIGHT_GRAY);
+				if(ran.nextInt(10) == 1) {
+					light.setBackground(Color.WHITE);
+				}
 				light.addMouseListener(this);
 			}
 			//5. Add a mouseListener to each light
@@ -62,7 +68,16 @@ public class LightsOut implements MouseListener {
 		// 4.Check if the player has won (e.g. all the lights are off)
 		// ---- HINT: use `getLightAtPosition` to get the light at each position
 		// ---------- use 'getBackground' to get the light color
-
+		boolean playerWon = true;
+		for (int i = 0; i<25; i++) {
+			JLabel lightPos = getLightAtPosition(i);
+			if (lightPos.getBackground() == Color.LIGHT_GRAY) {
+				playerWon = false;
+			}
+		}
+		if (playerWon) {
+			JOptionPane.showMessageDialog(null, "the player character of no name pushing the buttons on the computer screen has acheived victory.");
+		}
 		/** PART 3: RANDOMIZE YOUR BOARD **/
 		// Now that your game works can you make the game start with some lights on?
 
